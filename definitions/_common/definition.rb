@@ -1,13 +1,10 @@
 Definition = {
   :cpu_count => '1',
-  :memory_size=> '2048',
+  :memory_size=> '512',
   :disk_size => '10140',
   :disk_format => 'VDI',
   :hostiocache => 'off',
   :os_type_id => 'Ubuntu_64',
-  :iso_file => "ubuntu-12.10-server-amd64.iso",
-  :iso_src => "http://releases.ubuntu.com/12.10/ubuntu-12.10-server-amd64.iso",
-  :iso_md5 => '4bd3270bde86d7e4e017e3847a4af485',
   :iso_download_timeout => "1000",
   :boot_wait => "4",
   :boot_cmd_sequence => [
@@ -30,6 +27,13 @@ Definition = {
   :ssh_guest_port => "22",
   :sudo_cmd => "echo '%p'|sudo -S sh '%f'",
   :shutdown_cmd => "shutdown -P now",
-  :postinstall_files => [ "base.sh" ],
+  :postinstall_files => [
+    "build_time.sh",
+    "apt.sh",
+    "vbox.sh",
+    "sudo.sh",
+    "vagrant.sh",
+    "cleanup.sh"
+  ],
   :postinstall_timeout => "10000"
 }
