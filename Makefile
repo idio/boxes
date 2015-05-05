@@ -10,7 +10,7 @@ install:
 
 all: $(BOXES)
 
-$(BOXES):
+$(BOXES): install
 	@for file in template/* ; do ln -s $(PWD)/$$file definitions/$(basename $@) 2> /dev/null || true; done
 	$(VEEWEE) vbox build $(basename $@) --force
 	$(VEEWEE) vbox export $(basename $@)
